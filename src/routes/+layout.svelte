@@ -29,7 +29,7 @@
       
       <RouteList />
     </div>
-    <div class="w-3/5 h-screen">
+    <div class="w-3/5 h-screen p-4">
       <slot />
     </div>
   </div>

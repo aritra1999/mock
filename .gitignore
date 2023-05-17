@@ -11,3 +11,4 @@ vite.config.ts.timestamp-*
 
 commands.md
 
+src/lib/data/routes.json
