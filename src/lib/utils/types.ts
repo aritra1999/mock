@@ -5,6 +5,6 @@ export interface MetaRoute {
     operationId: string;
     response: Record<string, any>;
     security: Record<string, any>[];
-    method: 'GET' | 'POST' | 'PUT' | 'DELETE';  
+    method: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'get' | 'post' | 'put' | 'delete';  
 };
 
