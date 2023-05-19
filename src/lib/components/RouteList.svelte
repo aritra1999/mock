@@ -8,7 +8,7 @@
 
 <div class="flex mt-4 space-y-4 flex-col mb-24">
     {#each routes as route}
-        <a href="/path/{encodeURIComponent(route.path)}">
+        <a href="/path/{encodeURIComponent(route.path)}/{route.method.toLocaleLowerCase()}">
             <div class="mx-4 p-4 rounded-md bg-white">
                 <div class="flex items-start justify-between">
                     <div class="font-semibold">{route.name}</div>
