@@ -28,12 +28,16 @@ export function getRouteColorClass(method: string): string {
 export function parseSchema(schema: Record<string, any>): Record<string, any> {
 	
 	const parsedSchema: Record<string, any> = {};
-
+	
 	if (schema['$ref']) {
 		const refPath: string[] = schema['$ref'].split('/');
 		return buildSchemaFromRef(refPath[3]);
-	} else {
-		console.log('no ref');
+	} else if (schema.items['$ref']) {
+		const refPath: string[] = schema.items['$ref'].split('/');
+		return buildSchemaFromRef(refPath[3]);
+	}
+	else {
+		console.log('no ref', schema);
 	}
 
 
