@@ -10,5 +10,6 @@
     const highlightedCode = hljs.highlight(JSON.stringify(code, null, 2), {language: 'json'}).value
 
 </script>
-
-<pre><code>{@html highlightedCode}</code></pre>
+<div class="p-2 bg-slate-100 rounded-md">
+    <pre class="break-words"><code>{@html highlightedCode}</code></pre>
+</div>
