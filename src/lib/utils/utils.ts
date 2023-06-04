@@ -1,5 +1,6 @@
 import type { MetaRoute } from '$lib/utils/types';
-import routesJson from '$lib/data/routes.json';
+import routesJson from '$lib/data/routesMock.json';
+// import routesJson from '$lib/data/routesMock.json';
 
 export function buildPaths(paths: Record<string, any>): MetaRoute[] {
 	const routes: MetaRoute[] = [];
@@ -27,21 +28,16 @@ export function getRouteColorClass(method: string): string {
 
 export function parseSchema(schema: Record<string, any>): Record<string, any> {
 	
-	const parsedSchema: Record<string, any> = {};
-	
 	if (schema['$ref']) {
 		const refPath: string[] = schema['$ref'].split('/');
 		return buildSchemaFromRef(refPath[3]);
-	} else if (schema.items['$ref']) {
+	} else if (schema.items && schema.items['$ref']) {
 		const refPath: string[] = schema.items['$ref'].split('/');
 		return buildSchemaFromRef(refPath[3]);
-	}
-	else {
-		console.log('no ref', schema);
-	}
+	} 
 
 
-	return parsedSchema;
+	return schema;
 }
 
 function buildSchemaFromRef(schemaName: string) {
@@ -68,4 +64,9 @@ function buildSchemaFromRef(schemaName: string) {
 	}
 
 	return result;
+}
+
+export function getParsedSchemaFromContent(content: Record<string, any> , selectedFormat: string): Record<string, any> {
+	let schema: Record<string, any> = {};
+	return parseSchema(schema); 
 }
