@@ -1,6 +1,4 @@
-<script lang="ts">
-	import Parameter from "./Parameter.svelte";
-    
+<script lang="ts">   
     export let parameters: Record<string, any>[]; 
 
     const parameterFields = ["name", "description", "properties"];
