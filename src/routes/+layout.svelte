@@ -10,7 +10,6 @@
   <div class="flex pt-20">
     <div class="w-2/5 h-screen overflow-y-auto overflow-x-hidden">
       <div class="flex items-center mt-4 mx-4 space-x-4">
-
           <div class="relative w-full">
               <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
@@ -26,9 +25,7 @@
                   </svg>                      
               </button>
           </div>
-
       </div>
-      
       <RouteList />
     </div>
     <div class="w-3/5 h-screen overflow-y-auto overflow-x-hidden p-4">
