@@ -3,7 +3,7 @@
 	  import RouteParams from '$lib/components/Parameter/RouteParams.svelte';
 	  import RouteRequest from '$lib/components/Request/RouteRequest.svelte';
 	  import RouteResponse from '$lib/components/Response/RouteResponse.svelte';
-    import explorerJson from '$lib/data/routesMock.json';
+    import explorerJson from '$lib/data/swaggerMock.json';
 	  import { getRouteColorClass } from '$lib/utils/utils';
 
     $: pathDetails = (explorerJson.paths as Record<string, any>)[$page.params.route][$page.params.method];

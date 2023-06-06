@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { MetaRoute } from "$lib/utils/types";
     // import explorerJson from '$lib/data/routesMock.json';
-    import explorerJson from '$lib/data/routesMock.json';
+    import explorerJson from '$lib/data/swaggerMock.json';
     import { buildPaths, getRouteColorClass } from '$lib/utils/utils';
 
     const routes: MetaRoute[] = buildPaths(explorerJson.paths);

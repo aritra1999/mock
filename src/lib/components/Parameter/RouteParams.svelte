@@ -1,6 +1,6 @@
 <script lang="ts">
-    import type { Parameter } from "$lib/utils/types";
 	import { getParameterFieldNames } from "./utils";
+    import type { Parameter } from "$lib/utils/types";
 
     export let parameters: Parameter[]; 
     const parameterFields = getParameterFieldNames(parameters);

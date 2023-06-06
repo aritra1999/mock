@@ -1,7 +1,6 @@
 import type { MetaRoute } from '$lib/utils/types';
-import routesJson from '$lib/data/routesMock.json';
-import { error } from '@sveltejs/kit';
 // import routesJson from '$lib/data/routesMock.json';
+import routesJson from '$lib/data/swaggerMock.json';
 
 export function buildPaths(paths: Record<string, any>): MetaRoute[] {
 	const routes: MetaRoute[] = [];
