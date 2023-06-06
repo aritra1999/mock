@@ -1,8 +1,8 @@
 <script lang="ts">
     import { page } from '$app/stores'
-	  import RouteParams from '$lib/components/RouteParams.svelte';
-	  import RouteRequest from '$lib/components/RouteRequest.svelte';
-	  import RouteResponse from '$lib/components/RouteResponse.svelte';
+	  import RouteParams from '$lib/components/Parameter/RouteParams.svelte';
+	  import RouteRequest from '$lib/components/Request/RouteRequest.svelte';
+	  import RouteResponse from '$lib/components/Response/RouteResponse.svelte';
     import explorerJson from '$lib/data/routesMock.json';
 	  import { getRouteColorClass } from '$lib/utils/utils';
 
