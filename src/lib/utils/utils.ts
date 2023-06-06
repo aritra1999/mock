@@ -1,5 +1,6 @@
 import type { MetaRoute } from '$lib/utils/types';
 import routesJson from '$lib/data/routesMock.json';
+import { error } from '@sveltejs/kit';
 // import routesJson from '$lib/data/routesMock.json';
 
 export function buildPaths(paths: Record<string, any>): MetaRoute[] {
@@ -68,5 +69,10 @@ function buildSchemaFromRef(schemaName: string) {
 
 export function getParsedSchemaFromContent(content: Record<string, any> , selectedFormat: string): Record<string, any> {
 	let schema: Record<string, any> = {};
+	try {
+		schema = content[selectedFormat].schema;
+	} catch(error) {
+		console.log(error);
+	}
 	return parseSchema(schema); 
 }
