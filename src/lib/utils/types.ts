@@ -8,3 +8,14 @@ export interface MetaRoute {
     method: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'get' | 'post' | 'put' | 'delete';  
 };
 
+export interface Parameter {
+    name: string;
+    description: string;
+    required?: boolean;
+    nullable?: boolean;
+    schema: {
+        type: string;
+        enum?: string[];
+        format?: string; 
+    }
+}
