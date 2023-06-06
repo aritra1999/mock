@@ -5,6 +5,7 @@
 	  import RouteResponse from '$lib/components/Response/RouteResponse.svelte';
     import explorerJson from '$lib/data/swaggerMock.json';
 	  import { getRouteColorClass } from '$lib/utils/utils';
+	import { Accordion, AccordionItem } from 'flowbite-svelte';
 
     $: pathDetails = (explorerJson.paths as Record<string, any>)[$page.params.route][$page.params.method];
    
@@ -33,7 +34,7 @@
   </div>
   
   {#if pathDetails.requestBody !== undefined }
-    <!-- <Accordion class="bg-white rounded-md">
+    <Accordion class="bg-white rounded-md">
       <AccordionItem activeClasses="border-none bg-blue-600 text-white rounded-md" inactiveClasses="border-none rounded-md">
         <span slot="header">Requests</span>
         <div slot="arrowup">
@@ -45,16 +46,16 @@
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
           </svg>        
-        </span>     -->
-        <div class="bg-white rounded-md p-4">
+        </span>    
+        <div class="bg-white rounded-md">
           <RouteRequest requestBody={pathDetails.requestBody}/>
         </div>
-      <!-- </AccordionItem>
-    </Accordion> -->
+      </AccordionItem>
+    </Accordion>
   {/if}  
 
   {#if pathDetails.parameters !== undefined }
-    <!-- <Accordion class="bg-white rounded-md">
+    <Accordion class="bg-white rounded-md">
       <AccordionItem activeClasses="border-none bg-blue-600 text-white rounded-md" inactiveClasses="border-none rounded-md">
         <span slot="header">Parameters</span>
         <div slot="arrowup">
@@ -66,16 +67,16 @@
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
           </svg>        
-        </span> -->
-        <div class="bg-white rounded-md p-4">
+        </span>
+        <div class="bg-white rounded-md">
           <RouteParams parameters={pathDetails.parameters}/>
         </div>
-      <!-- </AccordionItem>
-    </Accordion> -->
+      </AccordionItem>
+    </Accordion>
   {/if}
 
   {#if pathDetails.responses !== undefined }
-    <!-- <Accordion class="bg-white rounded-md"> 
+    <Accordion class="bg-white rounded-md"> 
       <AccordionItem activeClasses="rounded-md border-none bg-blue-600 text-white" inactiveClasses="border-none rounded-md">
         <span slot="header">Response</span>
         <div slot="arrowup">
@@ -87,12 +88,12 @@
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
           </svg>        
-        </span> -->
-        <div class="bg-white rounded-md p-4">
+        </span>
+        <div class="bg-white rounded-md">
           <RouteResponse responses={pathDetails.responses} />
         </div>
-      <!-- </AccordionItem>
-    </Accordion> -->
+      </AccordionItem>
+    </Accordion>
   {/if}
     
 </div>
