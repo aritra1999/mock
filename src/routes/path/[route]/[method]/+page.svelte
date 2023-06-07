@@ -13,7 +13,7 @@
 
 <div class="flex flex-col space-y-6 mb-20">
   <div class="bg-white rounded-md p-4">
-    <h1 class="title-font text-3xl font-bold">{pathDetails.summary}</h1>
+    <h1 class="title-font text-3xl font-bold mb-4">{pathDetails.summary}</h1>
 
     
     <div class="flex w-full bg-slate-100 mt-2 text-sm text-slate-600 rounded-sm">

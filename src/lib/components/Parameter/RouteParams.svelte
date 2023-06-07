@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { getParameterFieldNames } from "./utils";
     import type { Parameter } from "$lib/utils/types";
+	import { stringify } from "postcss";
 
-    export let parameters: Parameter[]; 
+    export let parameters: Record<string, any>[]; 
     const parameterFields = getParameterFieldNames(parameters);
 </script>
 
@@ -26,9 +27,11 @@
                             {parameter.name}
                         </div>
                         <div class="text-slate-500">
-                            {parameter.schema.type}
-                            {#if parameter.schema.format}
-                                - {parameter.schema.format}
+                            {#if parameter.schema}
+                                {parameter.schema.type}
+                                {#if parameter.schema.format}
+                                    - {parameter.schema.format}
+                                {/if}
                             {/if}
                         </div>
                     </td>
@@ -37,17 +40,15 @@
                             {parameter.description}
                         {/if}
                     </td>
-                    <td class="px-4 py-2">
-                        {#if parameter.required}
-                            <div class="tag">Required</div>
+                    {#each parameterFields as paramField}
+                        {#if paramField !== "name" && paramField !== "description"}
+                            <td class="px-4 py-2">
+                                {#if parameter[paramField]}
+                                    {parameter[paramField]}
+                                {/if}
+                            </td>
                         {/if}
-                        {#if parameter.nullable != undefined && !parameter.nullable}
-                            <div class="tag">Not Null</div>
-                        {/if}
-                    </td>
-                    <td class="px-4 py-2">
-                        {#if parameter.schema.enum}{parameter.schema.enum} {/if}
-                    </td>
+                    {/each}
                 </tr>
             {/each}
         </tbody>
