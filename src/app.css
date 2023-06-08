@@ -28,6 +28,10 @@ body, html {
     @apply my-1 py-0.5 px-2 rounded-full bg-blue-100 text-blue-700 font-medium inline-block;
 }
 
+.active {
+    @apply ring-offset-0 ring-0 !important;
+}
+
 ::-webkit-scrollbar {
     width: 5px;
     border-radius: 10px;
