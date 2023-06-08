@@ -1,15 +1,16 @@
 <script lang="ts">
 	import type { MetaRoute } from "$lib/utils/types";
-    import explorerJson from '$lib/data/routes.json';
+    // import explorerJson from '$lib/data/routesMock.json';
+    import explorerJson from '$lib/data/swaggerMock.json';
     import { buildPaths, getRouteColorClass } from '$lib/utils/utils';
 
     const routes: MetaRoute[] = buildPaths(explorerJson.paths);
 </script>
 
-<div class="flex mt-4 space-y-4 flex-col mb-24">
+<div class="flex flex-col mb-24 divide-y-2 divide-slate-100">
     {#each routes as route}
-        <a href="/path/{encodeURIComponent(route.path)}">
-            <div class="mx-4 p-4 rounded-md bg-white">
+        <a href="/path/{encodeURIComponent(route.path)}/{route.method.toLocaleLowerCase()}">
+            <div class="px-3 py-4 bg-white">
                 <div class="flex items-start justify-between">
                     <div class="font-semibold">{route.name}</div>
                     <button class="bg-slate-50 hover:bg-slate-100 rounded-md p-2">

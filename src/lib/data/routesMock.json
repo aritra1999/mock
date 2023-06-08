@@ -1,9 +1,9 @@
 {
 	"info": {
-		"title": "Mock APIs",
-		"version": "v69",
-		"description": "List of mock endpoints that can be used for testing frontend applications",
-		"license": {},
+		"title": "API personnes décédées",
+		"version": "v0-268-g1cecacd",
+		"description": "API pour faciliter le rapprochement des personnes decedees",
+		"license": { "name": "lgpl-3.0", "url": "https://choosealicense.com/licenses/lgpl-3.0/" },
 		"contact": {
 			"name": "MatchID",
 			"url": "https://deces.matchid.io",
@@ -55,7 +55,7 @@
 										"type": "string",
 										"description": "Fichier CSV contenant le noms des identités à comparer",
 										"format": "binary"
- 									}
+									}
 								}
 							}
 						}
@@ -161,7 +161,7 @@
 						"description": "Prénom",
 						"in": "query",
 						"name": "firstName",
-						"required": false,
+						"required": true,
 						"schema": { "type": "string" }
 					},
 					{
@@ -189,14 +189,15 @@
 						"description": "Localité\\: de naissance en claire (pour les personnes nées en France ou dans les DOM/TOM/COM)",
 						"in": "query",
 						"name": "birthCity",
-						"required": false,
+						"required": true,
 						"schema": { "type": "string" }
 					},
 					{
 						"description": "Code département du lieu de naissance",
 						"in": "query",
 						"name": "birthDepartment",
-						"required": false,
+						"required": true,
+						"nullable": false,
 						"schema": { "type": "string" }
 					},
 					{
@@ -217,7 +218,8 @@
 						"description": "Localité de décès en claire** (pour les personnes nées en France ou dans les DOM/TOM/COM)",
 						"in": "query",
 						"name": "deathCity",
-						"required": false,
+						"required": true,
+						"nullable": true,
 						"schema": { "type": "string" }
 					},
 					{
