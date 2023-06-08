@@ -1,15 +1,11 @@
 <script lang="ts">
 	import { getParameterFieldNames } from "./utils";
-    import type { Parameter } from "$lib/utils/types";
-	import { stringify } from "postcss";
-
     export let parameters: Record<string, any>[]; 
     const parameterFields = getParameterFieldNames(parameters);
 </script>
 
-
-<div class="relative overflow-x-auto">
-    <table class="w-full text-left text-gray-500">
+<div class="-m-4 relative overflow-x-auto">
+    <table class="w-full text-left text-gray-500 rounded">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50">
             <tr>
                 {#each parameterFields as paramField}
@@ -35,18 +31,17 @@
                             {/if}
                         </div>
                     </td>
-                    <td class="px-4 py-2">
-                        {#if parameter.description}
-                            {parameter.description}
-                        {/if}
-                    </td>
                     {#each parameterFields as paramField}
-                        {#if paramField !== "name" && paramField !== "description"}
+                        {#if paramField !== "name"}
                             <td class="px-4 py-2">
-                                {#if parameter[paramField]}
+                                {#if paramField === "schema"}
+                                    {#each Object.keys(parameter.schema) as schemaProperty}
+                                        <span class="capitalize font-semibold text-slate-800">{schemaProperty} - </span> {parameter.schema[schemaProperty]}<br>
+                                    {/each}
+                                {:else}
                                     {parameter[paramField]}
                                 {/if}
-                            </td>
+                            </td>  
                         {/if}
                     {/each}
                 </tr>
